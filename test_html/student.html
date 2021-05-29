@@ -3,35 +3,54 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" >
         <link rel="stylesheet" href="./style.css" />
+      
         <title>Document</title>
     </head>
     <body>
             <div id="container">
-                <nav id="nav">
-                    <ul>
-                        <li> Profile</li>
-                        <li>Result Page</li>
-                        <li>Request Help</li>
-                        <li>Logout</li>
-                    </ul>
-                </nav>
-
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Result Page</a>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Request Help</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                      </li>
+                    </li>
+                  </ul>
+               
                 <section id="content">
-                    <h1>Number of Hours Remaining: #</h1>
-                    <div id="form">
-                     <h2> Topic  <input type="text"> </h2>
-                     <h2>Duration<input type="text"> </h2>
-                    </div>
 
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                    <p1>Number of Hours Remaining: #</p1>
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <div class="col-sm-10"></div>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Topic</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                       </div>
-                </section>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <div class="col-sm-10"></div>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Duration</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group mb-3">
+                        <div class="col-sm-10"></div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+
             </div>
+            </div>
+        </section>
     </body>
 
 </html>
-
-
-

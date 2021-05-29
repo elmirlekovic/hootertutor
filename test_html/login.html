@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <link rel="stylesheet" href="./style.css" />
-        <title>Document</title>
-    </head>
-    <body>
 
-<img src="images/logo.JPG" alt="image">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <title>Document</title>
+</head>
 
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+<body>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="user-login">user:</label>
-        <input class="form-input" type="text" id="user-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Log Me In</button>
-      </div>
-    </form>
+  <div class="mb-3 row">
+    <div class="login-card">
+      <h1 class="page-title text-dark">Login</h1>
+      <form class="form login-form">
+        <div class="form-group">
+          <div class="col-sm-10">
+            <label for="email-login" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-dark btn-block" type="submit">Log Me In</button>
+
+            </div>
+      </form>
+
+      <p class="account"><span><a href="/">Create an account</a></span></p>
+
+    </div>
   </div>
-
 </body>
 
 </html>

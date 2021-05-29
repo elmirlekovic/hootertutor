@@ -1,16 +1,40 @@
 body {
     height: 100vh;
+    background-color: rgb(232, 241, 248) ;
+
 }
 #container {
     height: 100%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
 }
 #nav {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     flex-basis: 25%;
 }
 #content {
-    border: 1px solid orange;
+    /* border: 1px solid orange; */
     flex-basis: 75%;
+    margin-left: 70px;
+}
+
+.login-card {
+    padding: 20px;
+    height: 360px;
+    margin: auto;
+    flex: 0 0 50%;
+}
+.login-card1 {
+    padding: 20px;
+    height: 360px;
+    margin: auto;
+    flex: 0 0 50%;
+}
+
+.btn-dark {
+    margin-bottom: 15px;
+    color: #fff;
+    background-color: #212529;
+    border-color: #212529;
+    margin-top: 20px;
 }
