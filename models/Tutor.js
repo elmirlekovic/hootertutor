@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Tutor extends Model {}
 
-Studen.init(
+Tutor.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,12 @@ Studen.init(
     is_available: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-    }   
+        defaultValue: false
+    },
+    subject: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },  
   },
   {
     sequelize,
