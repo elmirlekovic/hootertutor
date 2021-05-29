@@ -1,0 +1,16 @@
+body {
+    height: 100vh;
+}
+#container {
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+}
+#nav {
+    border: 1px solid red;
+    flex-basis: 25%;
+}
+#content {
+    border: 1px solid orange;
+    flex-basis: 75%;
+}
