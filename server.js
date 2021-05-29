@@ -8,6 +8,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//TEMP
+const User = require('./models/Users');
+
+
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
