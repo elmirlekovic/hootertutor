@@ -3,18 +3,26 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
-
+    const dbUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+      first_name:req.body.first_name,
+      last_name: req.body.last_name,
+      university: req.body.university,
+    });
+    // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
-
-      res.status(200).json(userData);
+      req.session.loggedIn = true;
+      res.status(200).json(dbUserData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
+
+
 
 //Route for logging in
 router.post('/login', async (req, res) => {
