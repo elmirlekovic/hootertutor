@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.post('/create-user', async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -13,7 +13,10 @@ router.post('/', async (req, res) => {
     });
     // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
+      req.session.user_id = dbUserData.id;
       req.session.loggedIn = true;
+      req.session.is_student = dbUserData.is_student;
+      req.session.is_tutor = dbUserData.is_tutor;
       res.status(200).json(dbUserData);
     });
   } catch (err) {

@@ -41,6 +41,16 @@ User.init(
     university: {
         type: DataTypes.STRING,
         allowNull: false,
+    },
+    is_student: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    is_tutor: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   },
   {
