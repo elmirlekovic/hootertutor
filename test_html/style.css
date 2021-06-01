@@ -1,40 +1,95 @@
 body {
     height: 100vh;
-    background-color: rgb(232, 241, 248) ;
-
-}
-#container {
-    height: 100%;
-    /* border: 1px solid blue; */
+    /* background-color: rgb(232, 241, 248) ; */
+    /* background-image: url("images/image\1.jpg"); */
+    background-image: url("../public/images/image1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
-}
-#nav {
+      align-items: center;
+      justify-content: center;
+  }
+  
+  /* #container {
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+  } */
+  
+  #nav {
     /* border: 1px solid red; */
     flex-basis: 25%;
-}
-#content {
-    /* border: 1px solid orange; */
-    flex-basis: 75%;
-    margin-left: 70px;
-}
-
-.login-card {
+  }
+  
+  
+  .form.login-form {
+    border-radius: 30px;
+  }
+  p {
+    font-family: "Pattaya", sans-serif;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-weight: bold;
+  }
+  
+  .page-title {
+    font-weight: bold;
+  }
+  
+  .login-card {
+    /* padding: 20px;
+    height: 360px;
+    margin: auto;
+    flex: 0 0 50%;
+    border-radius: 30px; */
+    
+    padding: 20px;
+    height: 360px;
+    background-color: #ffffff;
+    margin: auto;
+    color: var(--light);
+    box-shadow: 2px 2px 6px #000000;
+    flex: 0 0 30%;
+    border-radius: 5px;
+    
+  }
+  
+  
+  .login-card1 {
     padding: 20px;
     height: 360px;
     margin: auto;
     flex: 0 0 50%;
-}
-.login-card1 {
-    padding: 20px;
-    height: 360px;
-    margin: auto;
-    flex: 0 0 50%;
-}
-
-.btn-dark {
+  
+    
+  }
+  
+  .btn-success {
     margin-bottom: 15px;
     color: #fff;
     background-color: #212529;
     border-color: #212529;
     margin-top: 20px;
-}
+    width: 100%;
+    display: block;
+  }
+  
+  .login-welcome {
+    /* margin-left: auto auto; */
+    position: relative;
+   padding:80px;
+    
+  }
+  
+  /* .login-welcome li {
+      display: none;
+  } */
+  
+  .welcome-back {
+    color: rgb(148, 8, 8);
+    text-shadow: 4px 4px 6px;
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  
+  
+  
