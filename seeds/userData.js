@@ -7,7 +7,9 @@ const userdata = [
         email: 'josh@email.com',
         first_name: 'Josh',
         last_name: 'S',
-        university: 'Carleton University'
+        university: 'Carleton University',
+        is_student:false,
+        is_tutor:true
     },
     {
         username: 'ElmirL',
@@ -15,7 +17,9 @@ const userdata = [
         email: 'elmir@email.com',
         first_name: 'Elmir',
         last_name: 'L',
-        university: 'Harvard University'
+        university: 'Harvard University',
+        is_student:false,
+        is_tutor:true
     },
     {
         username: 'Fadael',
@@ -23,7 +27,9 @@ const userdata = [
         email: 'fadeal@email.com',
         first_name: 'Fadeal',
         last_name: 'A',
-        university: 'Cambridge University'
+        university: 'Cambridge University',
+        is_student:true,
+        is_tutor:false
     },
     {
         username: 'TatyanaY',
@@ -31,7 +37,9 @@ const userdata = [
         email: 'tatyana@email.com',
         first_name: 'Tatyana',
         last_name: 'Y',
-        university: 'Oxford University'
+        university: 'Oxford University',
+        is_student:true,
+        is_tutor:false
     },
     
 ];
