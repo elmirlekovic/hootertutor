@@ -10,6 +10,8 @@ router.post('/create-user', async (req, res) => {
       first_name:req.body.first_name,
       last_name: req.body.last_name,
       university: req.body.university,
+      is_student: req.body.is_student,
+      is_tutor: req.body.is_tutor
     });
     // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
@@ -25,15 +27,11 @@ router.post('/create-user', async (req, res) => {
   }
 });
 
-
-
 //Route for logging in
 router.post('/login', async (req, res) => {
   try {
-
     //Gets user data using entered username
     const userData = await User.findOne({ where: { username: req.body.username } });
-
     //If the data doesn't exist in the table based on the username, report an error
     if (!userData) {
       res
