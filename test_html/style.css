@@ -2,7 +2,7 @@ body {
   height: 100vh;
   /* background-color: rgb(232, 241, 248) ; */
   /* background-image: url("images/image\1.jpg"); */
-  background-image: url("../public/images/image8.jpg");
+  background-image: url("../public/images/image1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
