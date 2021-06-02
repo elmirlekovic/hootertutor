@@ -5,13 +5,13 @@ const tutordata = [
         user_id: 1,
         is_available: true,
         available_duration:5,
-        subject: 'mechanical engineering'
+        subject: 'engineering'
     },
     {
         user_id: 2,
         is_available: true,
         available_duration:5,
-        subject: 'computer science'
+        subject: 'programming'
     },
 ];
 

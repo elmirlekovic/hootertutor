@@ -1,20 +1,36 @@
 const router = require('express').Router();
-const { HelpRequest, Tutor } = require('../../models');
+const { HelpRequest, Tutor, User } = require('../../models');
 
-router.get('/requestHelp/:subject', async (req, res) => {
+//TEST ROUTE
+// router.get('/', async (req, res) => {
+//     res.status(200).json({message:"okay"});
+// })
+
+//Route for getting available tutors 
+router.get('/request/:subject', async (req, res) => {
     try{
-        const availableTeachers = await Tutor.findAll({
+        const availableTutors = await Tutor.findAll({
             where: {
                 is_available:true,
                 subject:req.params.subject
-            }
+            },
+            include: [{model:User}],
         });
 
-        if(!availableTeachers){
+        //Check if there are any available tutors before proceeding with the process
+        if(!availableTutors){
             res
-            .status(200)
+            .status(400)
             .json({message:"No Tutors Found! Please try again later."})
+            return;
         }
+
+        console.log("Trying to show data....");
+
+        res.status(200).json(availableTutors);
+        
+
+
     } catch (err){
 
     }
