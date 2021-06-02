@@ -29,19 +29,21 @@ body {
     font-family: "Pattaya", sans-serif;
     font-family: "Yanone Kaffeesatz", sans-serif;
     font-weight: bold;
+   
   }
+  
+  li {
+      font-family: "Pattaya", sans-serif;
+      font-family: "Yanone Kaffeesatz", sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+    }
   
   .page-title {
     font-weight: bold;
   }
   
   .login-card {
-    /* padding: 20px;
-    height: 360px;
-    margin: auto;
-    flex: 0 0 50%;
-    border-radius: 30px; */
-    
     padding: 20px;
     height: 360px;
     background-color: #ffffff;
@@ -50,6 +52,7 @@ body {
     box-shadow: 2px 2px 6px #000000;
     flex: 0 0 30%;
     border-radius: 5px;
+    margin-bottom: 200px;
     
   }
   
@@ -59,8 +62,8 @@ body {
     height: 360px;
     margin: auto;
     flex: 0 0 50%;
-  
-    
+    margin-bottom: 200px;
+    background-color: #ffffff;
   }
   
   .btn-success {
@@ -77,19 +80,17 @@ body {
     /* margin-left: auto auto; */
     position: relative;
    padding:80px;
-    
+   margin-bottom: 180px;
   }
-  
-  /* .login-welcome li {
-      display: none;
-  } */
   
   .welcome-back {
     color: rgb(148, 8, 8);
-    text-shadow: 4px 4px 6px;
+    text-shadow: 2px 2px 4px;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
   
   
-  
+  .form-group  {
+      margin: 1% auto;
+    }
