@@ -1,96 +1,122 @@
 body {
-    height: 100vh;
-    /* background-color: rgb(232, 241, 248) ; */
-    /* background-image: url("images/image\1.jpg"); */
-    background-image: url("../public/images/image1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-      align-items: center;
-      justify-content: center;
-  }
-  
-  /* #container {
-    height: 100%;
-    border: 1px solid blue;
-    display: flex;
-  } */
-  
-  #nav {
-    /* border: 1px solid red; */
-    flex-basis: 25%;
-  }
-  
-  
-  .form.login-form {
-    border-radius: 30px;
-  }
-  p {
+  height: 100vh;
+  /* background-color: rgb(232, 241, 248) ; */
+  /* background-image: url("images/image\1.jpg"); */
+  background-image: url("../public/images/image8.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #container {
+  height: 100%;
+  border: 1px solid blue;
+  display: flex;
+} */
+
+#nav {
+  /* border: 1px solid red; */
+  flex-basis: 25%;
+}
+
+
+.form.login-form {
+  border-radius: 30px;
+}
+
+p {
+  font-family: "Pattaya", sans-serif;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-weight: bold;
+ 
+}
+
+li {
     font-family: "Pattaya", sans-serif;
     font-family: "Yanone Kaffeesatz", sans-serif;
     font-weight: bold;
-   
+    font-size: 20px;
   }
-  
-  li {
-      font-family: "Pattaya", sans-serif;
-      font-family: "Yanone Kaffeesatz", sans-serif;
-      font-weight: bold;
-      font-size: 20px;
-    }
-  
-  .page-title {
-    font-weight: bold;
-  }
-  
-  .login-card {
-    padding: 20px;
-    height: 360px;
+
+.page-title {
+  font-weight: bold;
+}
+
+.login-card {
+  padding: 20px;
+  height: 360px;
+  background-color: #ffffff;
+  margin: auto;
+  box-shadow: 2px 2px 6px #000000;
+  flex: 0 0 30%;
+  border-radius: 5px;
+  margin-bottom: 200px; 
+}
+
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
     background-color: #ffffff;
-    margin: auto;
-    color: var(--light);
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
     box-shadow: 2px 2px 6px #000000;
-    flex: 0 0 30%;
-    border-radius: 5px;
-    margin-bottom: 200px;
-    
-  }
-  
-  
-  .login-card1 {
-    padding: 20px;
-    height: 360px;
-    margin: auto;
-    flex: 0 0 50%;
-    margin-bottom: 200px;
-    background-color: #ffffff;
-  }
-  
-  .btn-success {
-    margin-bottom: 15px;
-    color: #fff;
-    background-color: #212529;
-    border-color: #212529;
-    margin-top: 20px;
-    width: 100%;
-    display: block;
-  }
-  
-  .login-welcome {
+    border-radius: 7px;
+    padding: 22px;
+   
+}
+
+ /* .login-card1 {
+  padding: 20px;
+  height: 360px;
+  margin: auto;
+  flex: 0 0 30%;
+  margin-bottom: 350px;
+ 
+  background-color: #ffffff;
+  color: var(--light);
+}  */
+
+
+.btn-success {
+  margin-bottom: 15px;
+  color: #fff;
+  background-color: #212529;
+  border-color: #212529;
+  margin-top: 20px;
+  width: 100%;
+  display: block;
+}
+
+.login-welcome {
+  /* margin-left: auto auto; */
+  position: relative;
+ padding:80px;
+ margin-bottom: 180px;
+}
+
+.login-welcome1 {
     /* margin-left: auto auto; */
     position: relative;
-   padding:80px;
-   margin-bottom: 180px;
+   padding:90px;
+   margin-bottom: 50px;
+   margin-left: 50px;
   }
-  
-  .welcome-back {
-    color: rgb(148, 8, 8);
-    text-shadow: 2px 2px 4px;
-    font-weight: bold;
-    font-size: 2.3rem;
+
+.welcome-back {
+  color: rgb(148, 8, 8);
+  text-shadow: 2px 2px 4px;
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+
+
+
+.form-group  {
+    margin: 1% auto;
   }
-  
-  
-  .form-group  {
-      margin: 1% auto;
-    }
