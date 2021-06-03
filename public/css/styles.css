@@ -7,7 +7,9 @@ body {
     align-items: center;
     justify-content: center;
   }
-  
+  .error{
+      color:rgb(148, 8, 8);
+  }
   .nav {
     flex-basis: 10%;
     font-size: large;
