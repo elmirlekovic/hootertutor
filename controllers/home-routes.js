@@ -21,14 +21,16 @@ router.get('/', (req, res) => {
 router.get('/tutor-portal', (req, res) => {
     user = User.findByPk(req.session.user_id)
     //missing proper query, what did you have in mind for the tutor portal as a filter for the incoming requests.
-    
+
     const availableTutors = await HelpRequest.findAll({
         where: {
             is_available:true,
             subject:req.params.subject
         },
         include: [{model:User}],
-    });    
+        as: 'tutorrequests'
+    });  
+
     if (req.session.is_student){
         req.redirect('/student-portal');
     }
@@ -43,6 +45,7 @@ router.get('/student-portal', (req, res) => {
             subject:req.params.subject
         },
         include: [{model:User}],
+        as: 'studentrequests',
     });    
     if (req.session.is_teacher){
         req.redirect('/tutor-portal');
