@@ -71,9 +71,9 @@ router.get('/results-page/:subject', async (req, res) => {
 
     //Check if there are any available tutors before proceeding with the process
     if(!availableTutors){
-        // res
-        // .status(400)
-        // .json({message:"No Tutors Found! Please try again later."})
+        res
+        .status(400)
+        .json({message:"No Tutors Found! Please try again later."})
     }
 
     req.render('results-page', { availableTutors })
