@@ -18,9 +18,9 @@ router.get('/', (req, res) => {
     res.render('login');
 });
 
-// router.get('/sign-up', (req, res)=> {
-//   res.render()
-// })
+router.get('/sign-up', (req, res)=> {
+  res.render('signup')
+})
 
 router.get('/tutor-portal', async (req, res) => {
     user = User.findByPk(req.session.user_id)
