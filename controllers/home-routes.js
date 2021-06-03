@@ -37,7 +37,7 @@ router.get('/student-portal', (req, res) => {
     res.render('student-portal', { user }); 
   });
 
-router.get('/results-page/:subject', (req, res) => {
+router.get('/results-page/:subject', async (req, res) => {
     //If the user is a tutor, redirect them to the tutor portal
     user = User.findByPk(req.session.user_id)
     if (req.session.is_teacher){
