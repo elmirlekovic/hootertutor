@@ -63,7 +63,7 @@ router.put('/setHours/:id', async (req, res) => {
 
         console.log(req.body.hours)
 
-        res.status(200).json({message:"Hours updated successfully."});
+        res.status(200).json({message:"Tutor hours updated successfully."});
 
     } catch (err){
         console.log(err);
