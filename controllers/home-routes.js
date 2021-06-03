@@ -16,7 +16,11 @@ router.get('/', (req, res) => {
     }
     // Otherwise, render the 'login' template
     res.render('login');
-  });
+});
+
+// router.get('/sign-up', (req, res)=> {
+//   res.render()
+// })
 
 router.get('/tutor-portal', async (req, res) => {
     user = User.findByPk(req.session.user_id)
