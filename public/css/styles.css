@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    background-image: url("../public/images/image1.jpg");
+    background-image: url("/static/images/image1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
