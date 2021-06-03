@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
     res.render('login');
   });
 
-router.get('/tutor-portal', (req, res) => {
+router.get('/tutor-portal', async (req, res) => {
     user = User.findByPk(req.session.user_id)
     //missing proper query, what did you have in mind for the tutor portal as a filter for the incoming requests.
 
@@ -37,7 +37,7 @@ router.get('/tutor-portal', (req, res) => {
     res.render('tutor-portal', { user,availableTutors }); 
   });
 
-router.get('/student-portal', (req, res) => {
+router.get('/student-portal', async (req, res) => {
     user = User.findByPk(req.session.user_id)
     const availableTutors = await Tutor.findAll({
         where: {
