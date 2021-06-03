@@ -11,4 +11,8 @@ Student.belongsTo( User, {
     foreignKey: 'user_id',
 });
 
+HelpRequest.belongsTo(Student,{
+    foreignKey:'student_id'
+});
+
 module.exports = { User, Tutor, Student, HelpRequest };

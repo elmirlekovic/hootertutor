@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { HelpRequest, Tutor, User } = require('../../models');
+const { HelpRequest, Tutor, User, Student } = require('../../models');
 
 //TEST ROUTE
 // router.get('/', async (req, res) => {
@@ -50,7 +50,34 @@ router.post('/request', async (req, res) => {
 
 router.get('/fetch/:tutor_id', async (req, res) => {
     try{
-        
+        //Get current requests along with associated User data through the students table
+        const currentRequests = await HelpRequest.findAll({
+            where:{
+                tutor_id: req.params.tutor_id
+            },
+            include: {
+                model:Student,
+                include: {
+                    model:User,
+                    attributes: [
+                        'first_name', 
+                        'last_name',
+                        'university'
+                    ],
+                },
+                attributes:[
+                    'id',
+                    'allowance_hours'
+                ],
+            },
+        });
+
+        if(!currentRequests){
+            res.status(200).json({message:"Hoot hoot!"})
+            return;
+        }
+
+        res.status(200).json(currentRequests);
     }catch(err){
         res.status(500).json(err);
     }
