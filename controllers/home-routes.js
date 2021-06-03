@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Tutor } = require('../models');
 
-// GET all galleries for homepage
+
 // Login route
 router.get('/', (req, res) => {
     // If the user is already logged in, redirect to the homepage
@@ -17,6 +17,8 @@ router.get('/', (req, res) => {
     // Otherwise, render the 'login' template
     res.render('login');
   });
+
+
 
 router.get('/tutor-portal', (req, res) => {
     user = User.findByPk(req.session.user_id)
@@ -34,4 +36,31 @@ router.get('/student-portal', (req, res) => {
     }
     res.render('student-portal', { user }); 
   });
+
+router.get('/results-page/:subject', (req, res) => {
+    //If the user is a tutor, redirect them to the tutor portal
+    user = User.findByPk(req.session.user_id)
+    if (req.session.is_teacher){
+        req.redirect('/tutor-portal');
+    }
+
+    //Get available teachers using the subject in the url
+    const availableTutors = await Tutor.findAll({
+      where: {
+          is_available:true,
+          subject:req.params.subject
+      },
+      include: [{model:User}],
+    });
+
+    //Check if there are any available tutors before proceeding with the process
+    if(!availableTutors){
+        // res
+        // .status(400)
+        // .json({message:"No Tutors Found! Please try again later."})
+    }
+
+    req.render('results-page', { availableTutors })
+
+})
 module.exports = router;
