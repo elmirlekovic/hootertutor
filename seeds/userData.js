@@ -2,7 +2,6 @@ const { User } =  require('../models');
 
 const userdata = [
     {
-        username: 'JoshS',
         password: 'password1',
         email: 'josh@email.com',
         first_name: 'Josh',
@@ -12,7 +11,6 @@ const userdata = [
         is_tutor:true
     },
     {
-        username: 'ElmirL',
         password: 'password2',
         email: 'elmir@email.com',
         first_name: 'Elmir',
@@ -22,7 +20,6 @@ const userdata = [
         is_tutor:true
     },
     {
-        username: 'Fadael',
         password: 'password3',
         email: 'fadeal@email.com',
         first_name: 'Fadeal',
@@ -32,7 +29,6 @@ const userdata = [
         is_tutor:false
     },
     {
-        username: 'TatyanaY',
         password: 'password4',
         email: 'tatyana@email.com',
         first_name: 'Tatyana',
