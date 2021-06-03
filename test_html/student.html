@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" >
-        <link rel="stylesheet" href="./style.css" />
-      
-        <title>Document</title>
-    </head>
-    <body>
-            <div id="container">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Result Page</a>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Request Help</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Logout</a>
-                      </li>
-                    </li>
-                  </ul>
-               
-                <section id="content">
 
-                    <p1>Number of Hours Remaining: #</p1>
-               
-                    <div class="input-group mb-3">
-                       
-                        <span class="input-group-text" id="inputGroup-sizing-default">Topic</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                      </div>
-                </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
 
-               
-                    <div class="input-group mb-3">
-                       
-                        <span class="input-group-text" id="inputGroup-sizing-default">Duration</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                      </div>
-                </div>
-               
-                    <div class="input-group mb-3">
-                       
-                
-                <button class="btn btn-success btn-block" type="submit">Submit</button>
+  <title>Document3</title>
+</head>
 
-            </div>
-            </div>
-        </section>
-    </body>
+<body>
+
+  <div class="col nav">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Result Page</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Request Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+
+  <main>
+
+    <p1>Number of Hours Remaining: </p1>
+
+    <div class="container students">
+      <div class="row student">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Topic</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Duration</label>
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">15 min</option>
+            <option value="2">30 min</option>
+            <option value="3">60 min</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <button class="btn btn-success btn-block" type="submit">Submit</button>
+        </div>
+        </div>
+    
+  
+</body>
+</main>
 
 </html>

@@ -1,22 +1,31 @@
-   <div id="container">
-                <nav id="nav">
-                    <ul>
-                        <li>Profile</li>
-                        <li>Result Page</li>
-                        <li>Request Help</li>
-                        <li>Logout</li>
-                    </ul>
-                </nav>
+<main>
 
-                <section id="content">
-                    <h1>Number of Hours Remaining: #</h1>
-                    <div id="form">
-                    <h2> Topic  <input type="text"> </h2>
-                     <h2>Duration<input type="text"> </h2>
-                    </div>
+    <p1>Number of Hours Remaining: </p1>
 
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                      </div>
-                </section>
-            </div>
+    <div class="container students">
+      <div class="row student">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Topic</span>
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Duration</label>
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">15 min</option>
+            <option value="2">30 min</option>
+            <option value="3">60 min</option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <button class="btn btn-success btn-block" type="submit">Submit</button>
+        </div>
+        </div>
+    
+  
+</body>
+</main>
