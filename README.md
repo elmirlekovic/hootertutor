@@ -14,7 +14,7 @@ Help Request Application
 
 Click here to open our site:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://.......)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://hootertutor.herokuapp.com/)
 
 
  ## Table of Contents
