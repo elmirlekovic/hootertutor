@@ -24,10 +24,12 @@ const loginFormHandler = async (event) => {
           body: JSON.stringify({ email, password }),
           headers: { 'Content-Type': 'application/json' },
         });
-        rdata = await response.json()
+        const rdata = await response.json()
+        console.log(rdata)
         if (response.ok) {
+
           // If successful, redirect the browser to the profile page
-          document.location.replace('/profile');
+          document.location.replace(rdata.path);
         } else {
             $("#error").text(rdata.message);
         }

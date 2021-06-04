@@ -29,13 +29,16 @@ router.post('/create-user', async (req, res) => {
 //Route for logging in
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
+    console.log("Login Route hit...")
+    let userData = await User.findOne({ where: { email: req.body.email } });
+   
     if (!userData) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
+    console.log(userData)
 
     //Validate password using req body password 
     const validPassword = await userData.checkPassword(req.body.password);
@@ -48,24 +51,33 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    console.log(validPassword)
     //If the function has reached this point, the user is logged in and valid
 
+    userData = userData.get({plain:true})
     //Save session information
     req.session.save(() => {
+      let urlPath;
+      console.log("Hello?")
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      req.session.is_student = dbUserData.is_student;
-      req.session.is_tutor = dbUserData.is_tutor;
+      req.session.is_student = userData.is_student;
+      req.session.is_tutor = userData.is_tutor;
       if (userData.is_student){
-        req.redirect('/student-portal');
+        urlPath = '/student-portal';
       }
       if (userData.is_teacher){
-        req.redirect('/tutor-portal');
+        urlPath = '/tutor-portal';
       }
-      // res.json({ user: userData, message: 'You are now logged in!' });
+      console.log(userData);
+      res.json({ user: userData, message: 'You are now logged in!', path: urlPath });
     });
 
+    
+    
+
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
