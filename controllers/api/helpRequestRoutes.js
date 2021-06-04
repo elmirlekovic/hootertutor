@@ -4,16 +4,28 @@ const { HelpRequest, Tutor, User, Student } = require('../../models');
 
 //Create a route for requesting help from a tutor
 //SHOULD BE USED WHEN
-router.post('/request', async (req, res) => {
-    try{
-        //Creates a new helpRequest using the requesr body
-        const newRequest = await HelpRequest.create({
-            ...req.body
-        });
+router.get('/request/:tutor_id', async (req, res) => {
+    //handle unauthorized requests
+    if(!req.session.logged_in && !req.session.is_student){
+        res.status(403).json({message:"You can not access this page"})
+    }
+    let user = await User.findOne({ where: { id: req.session.user_id } });
+    user = user.get({plain:true})
+    let student = await Student.findOne({ where: { user_id: user.id } });
+    student = student.get({plain:true});
 
-        res.status(200).json(newRequest)
+    try{
+        if(user.is_student){      
+            const newRequest = await HelpRequest.create({
+                student_id:student.id,
+                tutor_id:req.params.tutor_id
+            });
+            res.status(200).json(newRequest)
+        }else{
+            res.status(400).json({message:"Could Not Make the request"}); 
+        }
     }catch(err){
-        res.status(500).json(err);
+        res.status(500).json({message:"Could Not Make the request"});
     }
 });
 
@@ -52,7 +64,6 @@ router.get('/fetch/:tutor_id', async (req, res) => {
             res.status(200).json({message:"Hoot hoot!"})
             return;
         }
-
         //returns json of results as stated above
         res.status(200).json(currentRequests);
     }catch(err){
@@ -63,28 +74,5 @@ router.get('/fetch/:tutor_id', async (req, res) => {
 //Route for getting available tutors given the subject present in the URL parameters
 //SIMILAR TO ROUTE REQUEST IN home-routes WHEN NAVIGATING TO THE request-help page
 //COULD BE USED AS A REFRESH FOR STUDENTS ON THE RESULTS PAGE
-router.get('/request/:subject', async (req, res) => {
-    try{
-        const availableTutors = await Tutor.findAll({
-            where: {
-                is_available:true,
-                subject:req.params.subject
-            },
-            include: [{model:User}],
-        });
-
-        //Check if there are any available tutors before proceeding with the process
-        if(!availableTutors){
-            res
-            .status(400)
-            .json({message:"No Tutors Found! Please try again later."})
-            return;
-        }
-
-        res.status(200).json(availableTutors);
-    } catch (err){
-
-    }
-})
 
 module.exports = router;

@@ -8,52 +8,52 @@
               <h1 class="page-title text-dark">Sign-up</h1>
             </div>
             <div class="card-body">
-              <form class="form signup-form">
+              <form class="form signup-form" id="signupform">
 
                 <div class="form-group">
-                  <label for="firstname-signup" class="form-label">First Name:</label>
-                  <input type="first name" class="form-control" id="firstname">
+                  <label for="firstname" class="form-label">First Name:</label>
+                  <input type="first name" name="firstname" required class="form-control" id="firstname">
                 </div>
 
                 <div class="form-group">
-                  <label for="lastname-signup" class="form-label">Last Name:</label>
-                  <input type="lastname" class="form-control" id="lastname">
+                  <label for="lastname" class="form-label">Last Name:</label>
+                  <input type="lastname" class="form-control" required id="lastname">
                 </div>
 
                 <div class="form-group">
-                  <label for="username-signup" class="form-label">Email:</label>
-                  <input type="username" class="form-control" id="fusername">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" name="email" class="form-control" required id="email">
                 </div>
 
                 <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
-                  <input type="password" class="form-control" id="inputPassword">
+                  <label for="password" class="col-sm-2 col-form-label">Password:</label>
+                  <input type="password" name="password" class="form-control" required id="password">
                 </div>
 
                 <div class="form-group">
-                  <label for="inputPassword" class="col-sm-2 col-form-label"> Confirm Password:</label>
-                  <input type="password" class="form-control" id="inputPassword">
+                  <label for="inputPasswordAgain" class="col-sm-2 col-form-label"> Confirm Password:</label>
+                  <input type="password" name="password_again" class="form-control" required id="passwordagain">
                 </div>
 
                 <div class="form-group">
                   <label for="username-signup" class="form-label">University:</label>
-                  <input type="university" class="form-control" id="university">
+                  <input type="university" class="form-control" id="university" required>
                 </div>
 
                 <div class="form-group">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <input class="form-check-input tutor" name="stcheck" type="radio" required id="stcheck" value="is_tutor">
+                  <label class="form-check-label" for="stcheck">
                     I am A Teacher
                   </label>
                 </div>
 
+
                 <div class="form-group">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <input class="form-check-input student" name="stcheck" type="radio" required id="stcheck" value="is_student">
+                  <label class="form-check-label" for="stcheck">
                     I am A Student
                   </label>
                 </div>
-
                 <div class="form-group">
                   <button class="btn btn-success btn-block" type="submit">Sign-up</button>
 
@@ -85,4 +85,9 @@
 </body>
 </main>
 
-{{!-- <script src="./js/signup.js"></script> --}}
+
+{{#section 'script'}}
+
+<script src="/static/js/signup.js"></script>
+
+{{/section}}

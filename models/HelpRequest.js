@@ -15,7 +15,7 @@ HelpRequest.init(
         duration: {
             type: DataTypes.INTEGER,
             allowNull: false,
-        },
+        },    
         //This column references the student that sent the help request
         student_id: {
             type: DataTypes.INTEGER,
@@ -31,6 +31,11 @@ HelpRequest.init(
                 model: 'tutor',
                 key: 'id',
             }
+        },
+        accepted: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         }
     },
     {
@@ -39,7 +44,7 @@ HelpRequest.init(
       freezeTableName: true,
       underscored: true,
       modelName: 'helpRequest',
-    }
+    },
 );
 
 module.exports = HelpRequest;

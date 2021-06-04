@@ -6,23 +6,29 @@ router.post('/create-user', async (req, res) => {
     const dbUserData = await User.create({
       email: req.body.email,
       password: req.body.password,
-      first_name:req.body.first_name,
-      last_name: req.body.last_name,
+      first_name:req.body.firstname,
+      last_name: req.body.lastname,
       university: req.body.university,
       is_student: req.body.is_student,
       is_tutor: req.body.is_tutor
     });
+    if (!dbUserData) {
+      res
+        .status(400)
+        .json({ message: 'We could not create a user with this information. ' });
+      return;
+    }
     // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
-      req.session.loggedIn = true;
+      req.session.logged_in = true;
       req.session.is_student = dbUserData.is_student;
       req.session.is_tutor = dbUserData.is_tutor;
       res.status(200).json(dbUserData);
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: 'We could not create a user with this information. ' });
   }
 });
 
@@ -56,14 +62,14 @@ router.post('/login', async (req, res) => {
       req.session.logged_in = true;
       req.session.is_student = userData.is_student;
       req.session.is_tutor = userData.is_tutor;
+      res.status(200).json(userData);
     });
-
-    //return plain user data
-    res.status(200).json(userData);
 
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
+
 
 module.exports = router;

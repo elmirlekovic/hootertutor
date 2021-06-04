@@ -13,7 +13,7 @@ router.get('/getHours/:id', async (req, res) => {
         })
 
         if(!studentData){
-            res.status(404).json({message: "No student found with that id!"})
+            res.status(404);
             return;
         }
 
@@ -21,7 +21,7 @@ router.get('/getHours/:id', async (req, res) => {
 
     } catch (err){
         console.log(err);
-        res.status(500).json(err);
+        res.status(500);
     }
 });
 
@@ -42,11 +42,8 @@ router.put('/setHours/:id', async (req, res) => {
             res.status(404).json({ message: 'No student with this id!' });
             return;
         }
-
         console.log(req.body.hours)
-
         res.status(200).json({message:"Student hours updated successfully."});
-
     } catch (err){
         console.log(err);
         res.status(500).json(err);
