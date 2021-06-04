@@ -6,6 +6,7 @@ const { HelpRequest, Tutor, User, Student } = require('../../models');
 //SHOULD BE USED WHEN
 router.post('/request', async (req, res) => {
     try{
+        //Creates a new helpRequest using the requesr body
         const newRequest = await HelpRequest.create({
             ...req.body
         });
@@ -22,12 +23,15 @@ router.get('/fetch/:tutor_id', async (req, res) => {
     try{
         //Get current requests along with associated User data through the students table
         const currentRequests = await HelpRequest.findAll({
+            //filters by tutor_id since that is the value present on help requests
             where:{
                 tutor_id: req.params.tutor_id
             },
+            //code below links the user information to the result using the student model using a nested 'include' statement
             include: {
                 model:Student,
                 include: {
+                    //Only returns the User attributes (info from the User table) listed below for the students
                     model:User,
                     attributes: [
                         'first_name', 
@@ -35,6 +39,7 @@ router.get('/fetch/:tutor_id', async (req, res) => {
                         'university'
                     ],
                 },
+                //Only returns the info listed below from the students table
                 attributes:[
                     'id',
                     'allowance_hours'
@@ -42,11 +47,13 @@ router.get('/fetch/:tutor_id', async (req, res) => {
             },
         });
 
+        //If there arent any current help requests, returns a message
         if(!currentRequests){
             res.status(200).json({message:"Hoot hoot!"})
             return;
         }
 
+        //returns json of results as stated above
         res.status(200).json(currentRequests);
     }catch(err){
         res.status(500).json(err);
