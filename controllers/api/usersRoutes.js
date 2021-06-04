@@ -30,13 +30,11 @@ router.post('/create-user', async (req, res) => {
 //Route for logging in
 router.post('/login', async (req, res) => {
   try {
-    //Gets user data using entered username
-    const userData = await User.findOne({ where: { username: req.body.username } });
-    //If the data doesn't exist in the table based on the username, report an error
+    const userData = await User.findOne({ where: { email: req.body.email } });
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+        .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
 
@@ -57,8 +55,15 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
-      res.json({ user: userData, message: 'You are now logged in!' });
+      req.session.is_student = dbUserData.is_student;
+      req.session.is_tutor = dbUserData.is_tutor;
+      if (userData.is_student){
+        req.redirect('/student-portal');
+      }
+      if (userData.is_teacher){
+        req.redirect('/tutor-portal');
+      }
+      // res.json({ user: userData, message: 'You are now logged in!' });
     });
 
   } catch (err) {
