@@ -23,6 +23,9 @@ Click here to open our site:
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation](#installation)
 - [Walkthrough videos](#walkthrough-videos)
+- [Presentation](#presentation)
+- [Screenshots](#screenshots)
+- [Future Development](#future-development)
 - [Dependencies & Technologies](#Dependencies-&-technologies)
 - [Questions](#questions)
 
@@ -79,8 +82,18 @@ npm i handlebars
 ```
 
 ## Walkthrough video
- further step....
+ further step.... demo
 
+## Presentation
+<a href="https://docs.google.com/presentation/d/1XyZX_IlrjAFekMN48ji7XzXqGLT8rDD2zog_UVs_HUc/edit#slide=id.gdeb0b53190_0_207 ">Link to open Presentation</a>
+
+## Screenshots
+ further step....
+![schema]()
+
+
+## Future Development
+ further step..
 
 ## Dependencies & Technologies
 
