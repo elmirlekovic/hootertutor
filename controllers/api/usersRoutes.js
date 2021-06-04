@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Tutor,Student } = require('../../models');
 
 router.post('/create-user', async (req, res) => {
   try {
@@ -17,6 +17,18 @@ router.post('/create-user', async (req, res) => {
         .status(400)
         .json({ message: 'We could not create a user with this information. ' });
       return;
+    }
+    if(req.body.is_tutor){
+      const tutor = await Tutor.create({
+        user_id:dbUserData.id,
+        subject:"None",
+        available_duration:5
+      });
+    }
+    if(req.body.is_student){
+      const student = await Student.create({
+        user_id:dbUserData.id
+      });
     }
     // Set up sessions with a 'loggedIn' variable set to `true`
     req.session.save(() => {
