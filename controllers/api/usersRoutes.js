@@ -4,7 +4,6 @@ const { User } = require('../../models');
 router.post('/create-user', async (req, res) => {
   try {
     const dbUserData = await User.create({
-      username: req.body.username,
       email: req.body.email,
       password: req.body.password,
       first_name:req.body.first_name,
@@ -31,7 +30,7 @@ router.post('/create-user', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     //Gets user data using entered username
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { email: req.body.email } });
     //If the data doesn't exist in the table based on the username, report an error
     if (!userData) {
       res

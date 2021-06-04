@@ -80,7 +80,7 @@ router.get('/results-page/:subject', async (req, res) => {
         .json({message:"No Tutors Found! Please try again later."})
     }
 
-    req.render('results-page', { availableTutors })
+    res.render('results-page', { availableTutors })
 
 })
 module.exports = router;
