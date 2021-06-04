@@ -31,14 +31,25 @@ router.get('/tutor-portal', async (req, res) => {
             is_available:true,
             subject:req.params.subject
         },
-        include: [{model:User}],
+        include: {
+          model:User,
+          include:{
+            model:User,
+            attributes: [
+              'first_name', 
+              'last_name',
+              'university'
+            ],
+          }
+        },
         as: 'tutorrequests'
     });  
 
     if (req.session.is_student){
         req.redirect('/student-portal');
     }
-    res.render('tutor-portal', { user,availableTutors }); 
+
+    res.render('tutor'); 
   });
 
 router.get('/student-portal', async (req, res) => {
@@ -54,7 +65,7 @@ router.get('/student-portal', async (req, res) => {
     if (req.session.is_teacher){
         req.redirect('/tutor-portal');
     }
-    res.render('student-portal', { user }); 
+    res.render('student', { user }); 
   });
 
 router.get('/results-page/:subject', async (req, res) => {
