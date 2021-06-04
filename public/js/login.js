@@ -44,7 +44,7 @@ const loginFormHandler = async (event) => {
 
           if(rdata.is_tutor){
             console.log("Navigating tutor...")
-            document.location.replace('/tutor');
+            document.location.replace('/tutor-portal');
           }
 
 

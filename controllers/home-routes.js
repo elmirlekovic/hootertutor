@@ -24,26 +24,7 @@ router.get('/sign-up', (req, res)=> {
 
 router.get('/tutor-portal', async (req, res) => {
     user = User.findByPk(req.session.user_id)
-    //missing proper query, what did you have in mind for the tutor portal as a filter for the incoming requests.
-
-    const availableTutors = await HelpRequest.findAll({
-        where: {
-            is_available:true,
-            subject:req.params.subject
-        },
-        include: {
-          model:User,
-          include:{
-            model:User,
-            attributes: [
-              'first_name', 
-              'last_name',
-              'university'
-            ],
-          }
-        },
-        as: 'tutorrequests'
-    });  
+    //missing proper query, what did you have in mind for the tutor portal as a filter for the incoming requests. 
 
     if (req.session.is_student){
         req.redirect('/student-portal');
@@ -68,30 +49,30 @@ router.get('/student-portal', async (req, res) => {
     res.render('student', { user }); 
   });
 
-router.get('/results-page/:subject', async (req, res) => {
-    //If the user is a tutor, redirect them to the tutor portal
-    user = User.findByPk(req.session.user_id)
-    if (req.session.is_teacher){
-        req.redirect('/tutor-portal');
-    }
+// router.get('/results-page/:subject', async (req, res) => {
+//     //If the user is a tutor, redirect them to the tutor portal
+//     user = User.findByPk(req.session.user_id)
+//     if (req.session.is_teacher){
+//         req.redirect('/tutor-portal');
+//     }
 
-    //Get available teachers using the subject in the url
-    const availableTutors = await Tutor.findAll({
-      where: {
-          is_available:true,
-          subject:req.params.subject
-      },
-      include: [{model:User}],
-    });
+//     //Get available teachers using the subject in the url
+//     const availableTutors = await Tutor.findAll({
+//       where: {
+//           is_available:true,
+//           subject:req.params.subject
+//       },
+//       include: [{model:User}],
+//     });
 
-    //Check if there are any available tutors before proceeding with the process
-    if(!availableTutors){
-        res
-        .status(400)
-        .json({message:"No Tutors Found! Please try again later."})
-    }
+//     //Check if there are any available tutors before proceeding with the process
+//     if(!availableTutors){
+//         res
+//         .status(400)
+//         .json({message:"No Tutors Found! Please try again later."})
+//     }
 
-    res.render('results-page', { availableTutors })
+//     res.render('results-page', { availableTutors })
 
-})
+// })
 module.exports = router;
