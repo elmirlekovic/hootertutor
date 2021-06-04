@@ -10,6 +10,9 @@ $( "#loginform" ).validate({
     }
   }
 });
+
+
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
@@ -24,12 +27,29 @@ const loginFormHandler = async (event) => {
           body: JSON.stringify({ email, password }),
           headers: { 'Content-Type': 'application/json' },
         });
-        const rdata = await response.json()
-        console.log(rdata)
+
+        console.log("Getting JSON data...")
+        const rdata = await response.json();
+        
         if (response.ok) {
+          //Redirect based on returned user properties
+          console.log("Determining redirect...")
+          console.log(rdata.is_student);
+          console.log(rdata.is_tutor);
+
+          if(rdata.is_student){
+            console.log('Navigating student...')
+            document.location.replace('/student-portal');
+          }
+
+          if(rdata.is_tutor){
+            console.log("Navigating tutor...")
+            document.location.replace('/tutor');
+          }
+
 
           // If successful, redirect the browser to the profile page
-          document.location.replace(rdata.path);
+          //document.location.replace(rdata.path);
         } else {
             $("#error").text(rdata.message);
         }
