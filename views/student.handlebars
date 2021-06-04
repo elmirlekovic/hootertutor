@@ -1,30 +1,45 @@
-<main>
+  <div class="col nav">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Result Page</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Request Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+      </li>
+      </li>
+    </ul>
+  </div>
+
+  <main>
+
     <p1>Number of Hours Remaining: </p1>
 
     <div class="container students">
       <div class="row student">
-        <form class="form help-request-form" id="signupform">
+
         <div class="input-group mb-3">
           <span class="input-group-text" id="inputGroup-sizing-default">Topic</span>
-          <input type="text" name="subject" class="form-control" aria-label="Sizing example input" id="subject">
+          <input type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default">
         </div>
 
         <div class="input-group mb-3">
           <label class="input-group-text" for="inputGroupSelect01">Duration</label>
-          <select class="form-select" name="duration" id="duration">
-            <option selected>Choose....</option>
-            <option value="15">15 min</option>
-            <option value="30">30 min</option>
-            <option value="60">60 min</option>
+          <select class="form-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">15 min</option>
+            <option value="2">30 min</option>
+            <option value="3">60 min</option>
           </select>
         </div>
 
         <div class="input-group mb-3">
           <button class="btn btn-success btn-block" type="submit">Submit</button>
         </div>
-        </form>
-      </div>
-  </div>
+        </div>
+    
 </main>
 
 
