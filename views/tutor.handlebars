@@ -10,45 +10,56 @@
     </div>
 
     <div class="col-md-7">
-       {{#if tutorModel.subject}}
-       {{else}}
-      <h2>Pick Your Subject</h2>
-        <div class="row">
+        <h2>Pick Your Subject</h2>
+            <div class="row">
+            
+                <select class="form-select" aria-label="Default select example" id="selectSubject">
+                    <option selected>Select subject...</option>
+                    <option value="{{tutorId}}/Node">Node</option>
+                    <option value="{{tutorId}}/React">React</option>
+                    <option value="{{tutorId}}/Angular">Angular</option>
+                    <option value="{{tutorId}}/TypeScript">TypeScript</option>
+                </select> 
+            
+            </div>
          
-            <select class="form-select" aria-label="Default select example" id="selectSubject">
-                <option selected>Select subject...</option>
-                <option value="{{tutorId}}/Node">Node</option>
-                <option value="{{tutorId}}/React">React</option>
-                <option value="{{tutorId}}/Angular">Angular</option>
-                <option value="{{tutorId}}/TypeScript">TypeScript</option>
-            </select> 
-           
-        </div>
-         {{/if}} 
         <br>
-        <div class="row">
-        <div class="card">
-                    <div class="card-header">
-
-        {{!-- <div class="input-group mb-3">
-        <button class="btn btn-success btn-block" type="submit">Check In</button>
-        </div> --}} 
-                        <h2>Incoming Requests</h2>
-                    </div>
+        
+        <h2 class="display-6">Incoming Requests</h2>
+        <div class="d-flex justify-content-center">
+            
+            {{!-- <div class="input-group mb-3">
+                    <button class="btn btn-success btn-block" type="submit">Check In</button>
+                    </div> --}} 
+                    
                     
                    
-                    <div class="card-body">
                     {{#if curObjects.length}}
                     {{#each curObjects as |request|}}
-                    <div class="card result-card">
+                    
+                      <div class="card" style="width: 18rem; margin:10px" >
+                            <div class="card-body">
+                                <h5 class="card-title">{{request.studentKey.user.first_name}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{request.studentKey.user.last_name}}</h6>
+                                <p class="card-text">{{request.studentKey.user.university}}</p>
+                                 {{#if request.accepted}}
+                                <a class="btn btn-success btn-block emailbutton" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}">Email Student</a>
+                                {{else}}
+                                <a class="btn btn-success btn-block emailbutton" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}" style="display:none">Email Student</a>
+                                <a class="btn btn-success btn-block reqbutton" id='acceptButton{{request.id}}' href="/api/help/accept/{{request.id}}" data-rid="{{request.id}}">Accept Request</a>
+                                {{/if}}
+                            </div>
+                        </div>  
+                    
+                    {{!-- <div class="card result-card">
                         <div class="row">
                             <div class="col-md-3">
                                 
                             </div>
                             <div class="col-md-6">
-                                <h3>{{request.studentKey.user.first_name}} {{request.studentKey.user.last_name}}</h3>
+                                <h3>{{request.studentKey.user.first_name}} {{request.studentKey.user.last_name}}</h3> --}}
                                 {{!-- <p>Subject:{{tutorModel.subject}} <br>University:{{request.studentKey.user.university}}</p> --}}
-                            </div>
+                            {{!-- </div>
                             <div class="col-md-3">
                                 {{#if request.accepted}}
                                 <a class="btn btn-success btn-block emailbutton" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}">Email Student</a>
@@ -59,15 +70,16 @@
                             </div>
                         </div>
                         </div>
-                    </div>
+                    </div> --}}
                     {{/each}}
                     {{else}}
                     <h4>No Incoming Requests!</h4>
                     {{/if}}
-
-                </div>
-            </div>
         </div>
+        
+
+                    
+
 
         
 
