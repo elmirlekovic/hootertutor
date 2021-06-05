@@ -35,5 +35,35 @@ router.get('/request/:tutor_id', async (req, res) => {
     }
 });
 
+router.get('/accept/:id', async (req,res)=>{
+    try{
+        const acceptedRequest = await HelpRequest.update(
+            {
+                accepted:1,
+            },
+            {
+                where: {
+                    id:req.params.id
+                }
+            }
+        
+        );
+
+        if(!acceptedRequest){
+            res.status(400).json({message: 'No request found. Oops!'});
+            return;
+        }
+
+        console.log(acceptedRequest)  
+
+        res.status(200).json({message:"Request has been accepted successfully!"});
+
+    } catch(err){
+        console.log(err)
+        res.status(500).json({message:'Internal Server Error when updating the request. Please try again later.'})
+    }
+    
+})
+
 
 module.exports = router;
