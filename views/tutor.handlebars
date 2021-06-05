@@ -43,8 +43,11 @@
                                 <p>{{request.studentKey.user.university}}</p>
                             </div>
                             <div class="col-md-3">
-                                <a class="btn btn-success btn-block reqbutton" href="/api/help/accept/{{request.id}}">Accept Request</a>
-                                <a class="btn btn-success btn-block emailbutton" id='emailButton' href="mailto:{{request.studentKey.user.email}}">Email Student</a>
+                                {{#if request.accepted}}
+                                <a class="btn btn-success btn-block emailbutton" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}">Email Student</a>
+                                {{else}}
+                                <button class="btn btn-success btn-block reqbutton" id='acceptButton{{request.id}}' data-rid="{{request.id}}">Accept Request...</button>
+                                {{/if}}
                             </div>
                         </div>
                         </div>
@@ -63,21 +66,8 @@
 </main>
 {{#section 'script'}}
 
-{{!-- <script src="/static/js/tutorhelp.js"></script> --}}
+<script src="/static/js/tutor_help.js"></script>
 
-<script>
-    $( ".reqbutton" ).on( "click", function(event){
-    event.preventDefault();
-   $.get($(this).attr('href'), function (data, textStatus, jqXHR) {
-    if(textStatus=='success'){
-        $("#success").text(data.message).show().delay(3000).fadeOut(300);
-        $(this).text("Accepted Request");
-        //$(this).removeClass();
-    }else{
-        $("#error").text(data.message).show().delay(3000).fadeOut(300);
-    }
-    });
-    });
 
     ${"#selectSubject"}
 
