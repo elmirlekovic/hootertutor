@@ -1,28 +1,45 @@
- <div class="col nav">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Result Page</a>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Request Help</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
-            </li>
-            </li>
+<main class="main-result">
+    <div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="/student-portal">Request Help</a></li>
+            <li class="list-group-item"><a href="/logout">Logout</a></li>
         </ul>
+        </div>
     </div>
-
-    <main class="main-result">
-        
-        <div class="container result1">
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header">
+                <h2>Available Tutors for help with: {{subject}}</h2>
+            </div>
+            <div class="card-body">
             {{#if tutors.length}}
             {{#each tutors as |tutor|}}
             <div class="card result-card">
-                
-                <a class="btn btn-success btn-block" href="/api/help/request/{{tutor.id}}">Request Help</a>
-
+                <div class="row">
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <h3>{{tutor.user.first_name}} {{tutor.user.last_name}}</h3>
+                        <h5>Subjects: {{tutor.subject}}</h5>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-success btn-block reqbutton" href="/api/help/request/{{tutor.id}}">Request Help</a>
+                    </div>
+                </div>
+                </div>
             </div>
             {{/each}}
+            {{else}}
+            <h4>No Tutors Avaialble at this time!</h4>
             {{/if}}
         </div>
+        </div>
     </main>
+{{#section 'script'}}
+
+<script src="/static/js/studenthelp.js"></script>
+
+{{/section}}

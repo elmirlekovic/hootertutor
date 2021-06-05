@@ -13,16 +13,22 @@ router.get('/request/:tutor_id', async (req, res) => {
     user = user.get({plain:true})
     let student = await Student.findOne({ where: { user_id: user.id } });
     student = student.get({plain:true});
-
+    const currentRequests = await HelpRequest.findAll({
+        where:{
+          tutor_id:req.params.tutor_id,
+          student_id:student.id,
+        }
+    });
     try{
-        if(user.is_student){      
+        if(parseInt(currentRequests.length) < 1){  
             const newRequest = await HelpRequest.create({
                 student_id:student.id,
-                tutor_id:req.params.tutor_id
+                tutor_id:req.params.tutor_id,
+                duration:120
             });
-            res.status(200).json(newRequest)
+            res.status(200).json({message:"Request Made"})
         }else{
-            res.status(400).json({message:"Could Not Make the request"}); 
+            res.status(200).json({message:"Request with this teacher was already made"}); 
         }
     }catch(err){
         res.status(500).json({message:"Could Not Make the request"});

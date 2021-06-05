@@ -73,12 +73,14 @@ router.get('/requests/:subject', async (req, res) => {
     //Get available teachers using the subject in the url
     const availableTutors = await Tutor.findAll({
       where: {
-          is_available:true,
+          // is_available:true,
           subject:req.params.subject
       },
       include: [{model:User}],
+      raw:true,
+      nest: true
     });
-
+    console.log(availableTutors);
     //Check if there are any available tutors before proceeding with the process
     if(!availableTutors){
         res
@@ -87,7 +89,7 @@ router.get('/requests/:subject', async (req, res) => {
     }
 
     //rendered result should somehow store the tutor id for use when creating a help request
-    res.render('results-page', { availableTutors })
+    res.render('results-page', { tutors:availableTutors,subject:req.params.subject })
 
 })
 
@@ -126,7 +128,8 @@ router.get('/tutor-requests', async (req, res) => {
           ]
         }
       },
-      raw:true
+      raw:true,
+      nest: true
     });
 
     console.log(currentRequests);
@@ -139,7 +142,7 @@ router.get('/tutor-requests', async (req, res) => {
     }
 
     //returns json of results as stated above
-    res.render('tutor', { currentRequests });
+    res.render('tutor', { inrequests:currentRequests });
 
   }catch(err){
       res.status(500).json({message:'Internal server error! Please try again later....'});

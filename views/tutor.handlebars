@@ -1,43 +1,51 @@
-<body>
-  <div class="col nav">
-   
-      <li class="nav-item">
-        <a class="nav-link" href="#">Result Page</a>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Request Help</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/logout">Logout</a>
-      </li>
-      </li>
-    </ul>
-  </div>
+<main class="main-result">
+    <div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="/tutor-portal">Incoming Requests</a></li>
+            <li class="list-group-item"><a href="/logout">Logout</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header">
 
-  <div class="input-group mb-3">
+  {{!-- <div class="input-group mb-3">
   <button class="btn btn-success btn-block" type="submit">Check In</button>
-</div>
+</div> --}}
 
-  <main>
-    
-    <!-- <div class="container students"> -->
-      <div class="row student">
+                <h2>Incoming Requests</h2>
+            </div>
+            <div class="card-body">
+            {{#if inrequests.length}}
+            {{#each inrequests as |request|}}
+            <div class="card result-card">
+                <div class="row">
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <h3>{{request.user.first_name}} {{request.user.last_name}}</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-success btn-block reqbutton" href="/api/help/request/{{request.id}}">Accept Request</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {{/each}}
+            {{else}}
+            <h4>No Incoming Requests!</h4>
+            {{/if}}
 
-        <div class="input-group mb-3">
-            <div class="card">
-                <div class="card-header">
-                    Incoming Requests
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title"></h5>
-                  <p class="card-text">
-                    {{currentRequests}}
-                  </p>
-                  <a href="#" class="btn btn-primary">Accept</a>
-                </div>
-              </div>
         </div>
       </div>
 
-    
-</body>
 </main>
+{{#section 'script'}}
+
+<script src="/static/js/tutorhelp.js"></script>
+
+{{/section}}
