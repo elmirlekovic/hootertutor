@@ -46,7 +46,7 @@ router.get('/tutor-portal', async (req, res) => {
     }else{
       res.redirect('/');
     }
-    res.render('tutor', { user}); 
+    res.redirect('/tutor-requests');
   });
 
 //Redirect to student page used when logging in
@@ -89,6 +89,61 @@ router.get('/requests/:subject', async (req, res) => {
     //rendered result should somehow store the tutor id for use when creating a help request
     res.render('results-page', { availableTutors })
 
+})
+
+//This route gets current help requests for a tutor using the tutor id present in the URL
+//FOR USE ON THE TUTOR DASHBOARD 
+router.get('/tutor-requests', async (req, res) => {
+
+  console.log("Hitting tutor request route...")
+
+  try{
+
+    let user = await User.findOne({ where: { id: req.session.user_id } });
+    user = user.get({plain:true})
+
+    
+    let tutor = await Tutor.findOne({ where: { user_id: user.id } });
+    tutor = tutor.get({plain:true});
+
+    console.log("Here", tutor)
+
+    //filters by tutor_id since that is the value present on help requests
+    //Get current requests along with associated User data through the students table
+    const currentRequests = await HelpRequest.findAll({
+      where:{
+        tutor_id:tutor.id
+      },
+      include:{
+        model:Student,
+        as:"studentKey",
+        include:{
+          model:User,
+          attributes:[
+            'first_name',
+            'last_name',
+            'university'
+          ]
+        }
+      },
+      raw:true
+    });
+
+    console.log(currentRequests);
+
+
+    //If there arent any current help requests, returns a message
+    if(!currentRequests){
+        res.status(200).json({message:"Hoot hoot!"});
+        return;
+    }
+
+    //returns json of results as stated above
+    res.render('tutor', { currentRequests });
+
+  }catch(err){
+      res.status(500).json({message:'Internal server error! Please try again later....'});
+  }
 })
 
 
