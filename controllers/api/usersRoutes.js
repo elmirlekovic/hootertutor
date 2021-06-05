@@ -27,7 +27,8 @@ router.post('/create-user', async (req, res) => {
     }
     if(req.body.is_student){
       const student = await Student.create({
-        user_id:dbUserData.id
+        user_id:dbUserData.id,
+        allowance_hours:300
       });
     }
     // Set up sessions with a 'loggedIn' variable set to `true`

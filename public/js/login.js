@@ -46,7 +46,8 @@ const loginFormHandler = async (event) => {
           // If successful, redirect the browser to the profile page
           //document.location.replace(rdata.path);
         } else {
-            $("#error").text(rdata.message);
+            $("#error").text(rdata.message).show().delay(3000).fadeOut(300);
+           
         }
       }
     };  

@@ -4,8 +4,13 @@
   .title{
     margin-bottom: 10px;
   }
-    .error{
+#error{
         color:rgb(148, 8, 8);
-    }
+        position: fixed;
+        width: 100%;
+        top: 0;
+        display: none;
+        z-index: 9999;
+}
    
     

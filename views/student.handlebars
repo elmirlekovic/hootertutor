@@ -18,26 +18,26 @@
 
     <div class="container students">
       <div class="row student">
-
+        <form class="help-request-form" id="requestform">
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Topic</span>
-          <input type="text" class="form-control" aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default">
+          <span class="input-group-text" id="dafdsa">Topic</span>
+          <input type="text" class="form-control" id="subject" name="subject">
         </div>
 
         <div class="input-group mb-3">
-          <label class="input-group-text" for="inputGroupSelect01">Duration</label>
-          <select class="form-select" id="inputGroupSelect01">
+          <label class="input-group-text" for="duration">Duration</label>
+          <select class="form-select" name="duration" id="duration">
             <option selected>Choose...</option>
-            <option value="1">15 min</option>
-            <option value="2">30 min</option>
-            <option value="3">60 min</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="60">60 min</option>
           </select>
         </div>
 
         <div class="input-group mb-3">
           <button class="btn btn-success btn-block" type="submit">Submit</button>
         </div>
+        </form>
         </div>
     
 </main>

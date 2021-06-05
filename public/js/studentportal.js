@@ -12,10 +12,12 @@ $( "#requestform" ).validate({
     event.preventDefault();
     const subject = document.querySelector('#subject').value.trim();
     const duration = document.querySelector('#duration').value;
+    console.log(subject,duration);
     if (subject && duration) {
+        
         document.location.replace('/requests/'+subject);
       } else {
-        $("#error").text(rdata.message);
+        // $("#error").text(rdata.message);
       }
     };
 

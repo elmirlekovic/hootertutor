@@ -66,7 +66,7 @@ $( "#signupform" ).validate({
             document.location.replace('/tutor-portal');
           }
       } else {
-        $("#error").text(rdata.message);
+        $("#error").text(rdata.message).show().delay(3000).fadeOut(300);
       }
     }
   };
