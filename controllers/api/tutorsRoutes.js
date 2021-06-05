@@ -71,4 +71,32 @@ router.put('/setHours/:id', async (req, res) => {
     }
 });
 
+router.put('/subject/:id/:newSubject', async (req, res) => {
+    try{
+        const tutorData = await Tutor.update(
+            {
+                subject: req.params.newSubject
+            },
+            {
+                where:{
+                    id: req.params.id
+                }
+            }
+        ); 
+
+        if(!tutorData){
+            res.status(404).json({ message: 'No tutor with this id!' });
+            return;
+        }
+
+        console.log(req.body.hours)
+
+        res.status(200).json({message:"Tutor subject updated successfully."});
+
+    } catch (err){
+        console.log(err);
+        res.status(500).json({message:"Internal server error when updating the subject. Please try again later."});
+    }
+});
+
 module.exports = router;

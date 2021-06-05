@@ -149,7 +149,7 @@ router.get('/tutor-requests', async (req, res) => {
     }
 
     //returns json of results as stated above
-    res.render('tutor', { curObjects });
+    res.render('tutor', { curObjects, tutorId:tutor.id});
 
   }catch(err){
       res.status(500).json({message:'Internal server error! Please try again later.'});
