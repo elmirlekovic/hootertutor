@@ -80,7 +80,6 @@ npm i express-session
 npm i handlebars
 
 ```
-
 ## Walkthrough video
  further step.... demo
 
