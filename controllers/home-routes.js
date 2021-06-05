@@ -46,6 +46,7 @@ router.get('/tutor-portal', async (req, res) => {
     }else{
       res.redirect('/');
     }
+    //Chain ridirect to tutor request path below
     res.redirect('/tutor-requests');
   });
 
@@ -97,7 +98,7 @@ router.get('/requests/:subject', async (req, res) => {
 //FOR USE ON THE TUTOR DASHBOARD 
 router.get('/tutor-requests', async (req, res) => {
 
-  console.log("Hitting tutor request route...")
+  //console.log("Hitting tutor request route...")
 
   try{
 
@@ -124,15 +125,21 @@ router.get('/tutor-requests', async (req, res) => {
           attributes:[
             'first_name',
             'last_name',
-            'university'
+            'university',
+            'email'
           ]
         }
       },
-      raw:true,
-      nest: true
-    });
+    })
+    
 
-    console.log(currentRequests);
+    const curString = JSON.stringify(currentRequests);
+    const curObjects = JSON.parse(curString);
+
+
+    console.log('Logging user data...')
+    console.log(curObjects)
+    console.log(curObjects[0].studentKey.user)
 
 
     //If there arent any current help requests, returns a message
@@ -142,10 +149,10 @@ router.get('/tutor-requests', async (req, res) => {
     }
 
     //returns json of results as stated above
-    res.render('tutor', { inrequests:currentRequests });
+    res.render('tutor', { curObjects });
 
   }catch(err){
-      res.status(500).json({message:'Internal server error! Please try again later....'});
+      res.status(500).json({message:'Internal server error! Please try again later.'});
   }
 })
 
