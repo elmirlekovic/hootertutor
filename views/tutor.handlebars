@@ -46,7 +46,7 @@
                                 {{#if request.accepted}}
                                 <a class="btn btn-success btn-block emailbutton" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}">Email Student</a>
                                 {{else}}
-                                <button class="btn btn-success btn-block reqbutton" id='acceptButton{{request.id}}' data-rid="{{request.id}}">Accept Request...</button>
+                                <a class="btn btn-success btn-block reqbutton" id='acceptButton{{request.id}}' href="/api/help/accept/{{request.id}}" data-rid="{{request.id}}">Accept Request...</a>
                                 {{/if}}
                             </div>
                         </div>
@@ -68,9 +68,4 @@
 
 <script src="/static/js/tutor_help.js"></script>
 
-
-    ${"#selectSubject"}
-
-
-</script>
 {{/section}}
