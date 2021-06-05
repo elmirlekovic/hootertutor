@@ -4,6 +4,9 @@
   .title{
     margin-bottom: 10px;
   }
+.error{
+  color: red;
+}
 .reqbutton{
   height: 100%;
 }
