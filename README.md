@@ -68,31 +68,17 @@ Install the packages/dependencies by hitting following command on your terminal 
 
 ```
 npm i
-npm init
-npm i mysql2
-npm i sequelize
-npm i express
-npm i dotenv
-npm i bcrypt
-npm i connect-session-sequelize
-npm i express-handlebars
-npm i express-session
-npm i handlebars
 
 ```
-## Walkthrough video
- further step.... demo
 
 ## Presentation
 <a href="https://docs.google.com/presentation/d/1XyZX_IlrjAFekMN48ji7XzXqGLT8rDD2zog_UVs_HUc/edit#slide=id.gdeb0b53190_0_207 ">Link to open Presentation</a>
 
 ## Screenshots
- further step....
-![schema]()
+![Screenshot](Screenshot.png)
 
 
-## Future Development
- further step..
+
 
 ## Dependencies & Technologies
 
@@ -106,7 +92,6 @@ npm i handlebars
 <img alt="CSS3" src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
 <img alt="Markdown" src="https://img.shields.io/badge/markdown-%23000000.svg?&style=for-the-badge&logo=markdown&logoColor=white"/>
 <img alt="Bootstrap" src="https://img.shields.io/badge/bootstrap-%23563D7C.svg?&style=for-the-badge&logo=bootstrap&logoColor=white"/>
-<img alt="Jest" src="https://img.shields.io/badge/-jest-%23C21325?&style=for-the-badge&logo=jest&logoColor=white"/>
 <img alt="Heroku" src="https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white"/>
 <img alt="Visual Studio Code" src="https://img.shields.io/badge/VisualStudioCode-0078d7.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
 <img alt="MySQL" src="https://img.shields.io/badge/mysql-%2300f.svg?&style=for-the-badge&logo=mysql&logoColor=white"/>
