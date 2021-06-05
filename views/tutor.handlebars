@@ -45,7 +45,7 @@
                                  {{#if request.accepted}}
                                 <a class="btn btn-success btn-block emailbutton"  style="height:fit-content; margin:5px" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}">Email Student</a>
                                 {{else}}
-                                <a class="btn btn-success btn-block emailbutton" style="height:fit-content; margin:5px" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}" style="display:none">Email Student</a>
+                                <a class="btn btn-success btn-block emailbutton" style="height:fit-content; margin:5px;display:none" id='emailButton{{request.id}}' data-rid="{{request.id}}" href="mailto:{{request.studentKey.user.email}}">Email Student</a>
                                 <a class="btn btn-success btn-block reqbutton" style="height:fit-content; margin:5px" id='acceptButton{{request.id}}' href="/api/help/accept/{{request.id}}" data-rid="{{request.id}}">Accept Request</a>
                                 {{/if}}
                             </div>
