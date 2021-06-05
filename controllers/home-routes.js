@@ -137,19 +137,15 @@ router.get('/tutor-requests', async (req, res) => {
     const curObjects = JSON.parse(curString);
 
 
-    console.log('Logging user data...')
-    console.log(curObjects)
-    console.log(curObjects[0].studentKey.user)
-
 
     //If there arent any current help requests, returns a message
     if(!currentRequests){
         res.status(200).json({message:"Hoot hoot!"});
         return;
     }
-
+    console.log(tutor);
     //returns json of results as stated above
-    res.render('tutor', { curObjects, tutorId:tutor.id});
+    res.render('tutor', { curObjects, tutorId:tutor.id, tutorModel:tutor});
 
   }catch(err){
       res.status(500).json({message:'Internal server error! Please try again later.'});

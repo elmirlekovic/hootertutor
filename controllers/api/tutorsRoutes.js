@@ -71,7 +71,7 @@ router.put('/setHours/:id', async (req, res) => {
     }
 });
 
-router.put('/subject/:id/:newSubject', async (req, res) => {
+router.get('/subject/:id/:newSubject', async (req, res) => {
     try{
         const tutorData = await Tutor.update(
             {
