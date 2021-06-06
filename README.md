@@ -22,7 +22,6 @@ Click here to open our site:
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
 - [Installation](#installation)
-- [Walkthrough videos](#walkthrough-videos)
 - [Presentation](#presentation)
 - [Screenshots](#screenshots)
 - [Future Development](#future-development)
